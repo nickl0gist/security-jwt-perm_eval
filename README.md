@@ -23,7 +23,7 @@ in WarehousePermissionRepo with usage of the ArrayList. All relation between obj
  
 ## Technologies ##
 
-* Spring Security JWt
+* Spring Security JWT
 * Spring Security PermissionEvaluator
 * Spring JPA Data
 * Hibernate
