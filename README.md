@@ -34,5 +34,5 @@ in WarehousePermissionRepo with usage of the ArrayList. All relation between obj
 ## Sources ##
 
 The code was created using <a href="https://github.com/rjozefowicz/spring-security">rjozefowich</a> 
-and [dangeabunea](#https://github.com/dangeabunea/RomanianCoderExamples) repositories.
+and <a href="https://github.com/dangeabunea/RomanianCoderExamples">dangeabunea</a> repositories.
 
