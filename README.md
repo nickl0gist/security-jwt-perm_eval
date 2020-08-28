@@ -23,7 +23,7 @@ in WarehousePermissionRepo with usage of the ArrayList. All relation between obj
  
 ## Technologies ##
 
-* Spring Security JWt
+* Spring Security JWT
 * Spring Security PermissionEvaluator
 * Spring JPA Data
 * Hibernate
@@ -33,6 +33,6 @@ in WarehousePermissionRepo with usage of the ArrayList. All relation between obj
 
 ## Sources ##
 
-The code was created using [rjozefowich](#https://github.com/rjozefowicz/spring-security) 
-and [dangeabunea](#https://github.com/dangeabunea/RomanianCoderExamples) repositories.
+The code was created using <a href="https://github.com/rjozefowicz/spring-security">rjozefowich</a> 
+and <a href="https://github.com/dangeabunea/RomanianCoderExamples">dangeabunea</a> repositories.
 
