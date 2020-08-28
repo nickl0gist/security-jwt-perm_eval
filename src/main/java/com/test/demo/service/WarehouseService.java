@@ -6,11 +6,8 @@ import com.test.demo.repository.WarehousePermissionRepo;
 import com.test.demo.repository.WarehouseRepo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.annotation.Secured;
-import org.springframework.security.access.prepost.PostFilter;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -63,21 +60,14 @@ public class WarehouseService {
     }
 
     @PreAuthorize("hasPermission(#id, 'com.test.demo.model.Warehouse', {'ADMIN'})")
-    //@PreAuthorize("hasRole('ROLE_ADMIN')")
-    //@Secured("ROLE_ADMIN")
     public void updateNameById(Long id, String name) {
         warehouseRepo.findById(id).ifPresent(p -> {
             p.setName(name);
         });
     }
 
-    //@PreAuthorize("hasPermission(#id, 'com.test.demo.model.Warehouse', {'CCC', 'XDC', 'TXDC', 'TS', 'TC', 'ADMIN'})")
     public void addTpaToWarehouse(long id, TPA tpa) {
         tpaService.persist(tpa);
         findWarehouseById(id).getTpaList().add(tpaService.findTpaById(tpa.getId()));
-    }
-
-    public void save(Warehouse warehouse){
-        warehouseRepo.save(warehouse);
     }
 }

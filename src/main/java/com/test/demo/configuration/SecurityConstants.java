@@ -12,7 +12,7 @@ public interface SecurityConstants {
     String TOKEN_HEADER = "Authorization";
     String TOKEN_PREFIX = "Bearer ";
     String TOKEN_TYPE = "JWT";
-    String TOKEN_ISSUER = "localhost"; //
-    String TOKEN_AUDIENCE = "localhost"; // resource server that should accept the token
+    String TOKEN_ISSUER = "localhost";
+    String TOKEN_AUDIENCE = "localhost";
     int EXPIRATION_TIME = 4 * 60* 60 * 1000; // 4 hours
  }

@@ -36,15 +36,13 @@ public class DbInit implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
-
-        User user1 = new User(1, "jan@example.com",       passwordEncoder.encode("boo"), "CCC"); // Floor Coordinator Warehouse1 CC
-        User user2 = new User(2, "stefan@example.com",    passwordEncoder.encode("boo"), "XDC"); // Floor Coordinator Warehouse2 XD
-        User user3 = new User(3, "kalina@example.com",    passwordEncoder.encode("boo"), "TXDC"); // Floor Coordinator Warehouse3 TXD
-        User user4 = new User(4, "joanna@example.com",    passwordEncoder.encode("boo"), "TC"); // Trade Coordinator for Warehouse 3 TXD
-        User user5 = new User(5, "marcelina@example.com", passwordEncoder.encode("boo"), "GUEST"); //GUEST
-        User user6 = new User(6, "katarzyna@example.com", passwordEncoder.encode("boo"), "ADMIN"); //ADMIN
-        User user7 = new User(7, "foo@example.com",       passwordEncoder.encode("boo"), "TS"); //Traffic Scheduler
-
+        User user1 = new User(1, "jan@example.com",       passwordEncoder.encode("boo"), "CCC");
+        User user2 = new User(2, "stefan@example.com",    passwordEncoder.encode("boo"), "XDC");
+        User user3 = new User(3, "kalina@example.com",    passwordEncoder.encode("boo"), "TXDC");
+        User user4 = new User(4, "joanna@example.com",    passwordEncoder.encode("boo"), "TC");
+        User user5 = new User(5, "marcelina@example.com", passwordEncoder.encode("boo"), "GUEST");
+        User user6 = new User(6, "katarzyna@example.com", passwordEncoder.encode("boo"), "ADMIN");
+        User user7 = new User(7, "foo@example.com",       passwordEncoder.encode("boo"), "TS");
         userRepository.save(user1);
         userRepository.save(user2);
         userRepository.save(user3);
@@ -64,14 +62,14 @@ public class DbInit implements CommandLineRunner {
         warehousePermissionRepo.persist(new WarehousePermission(user3, warehouse3, WarehousePermissionType.TXDC));
 
         // trade controllers
-        warehousePermissionRepo.persist(new WarehousePermission(user4, warehouse1, WarehousePermissionType.GUEST)); // Only read
-        warehousePermissionRepo.persist(new WarehousePermission(user4, warehouse2, WarehousePermissionType.GUEST)); // Only Read
-        warehousePermissionRepo.persist(new WarehousePermission(user4, warehouse3, WarehousePermissionType.TC)); // CRUD
-        warehousePermissionRepo.persist(new WarehousePermission(user4, warehouse4, WarehousePermissionType.TC)); // CRUD
+        warehousePermissionRepo.persist(new WarehousePermission(user4, warehouse1, WarehousePermissionType.GUEST));
+        warehousePermissionRepo.persist(new WarehousePermission(user4, warehouse2, WarehousePermissionType.GUEST));
+        warehousePermissionRepo.persist(new WarehousePermission(user4, warehouse3, WarehousePermissionType.TC));
+        warehousePermissionRepo.persist(new WarehousePermission(user4, warehouse4, WarehousePermissionType.TC));
 
         // Traffic Schedulers
-        warehousePermissionRepo.persist(new WarehousePermission(user7, warehouse1, WarehousePermissionType.TS)); // Only 1 create method, Rest of methods Read
-        warehousePermissionRepo.persist(new WarehousePermission(user7, warehouse2, WarehousePermissionType.TS)); // Only 1 create method, Rest of methods Read
+        warehousePermissionRepo.persist(new WarehousePermission(user7, warehouse1, WarehousePermissionType.TS));
+        warehousePermissionRepo.persist(new WarehousePermission(user7, warehouse2, WarehousePermissionType.TS));
 
         // GUESTS
         warehousePermissionRepo.persist(new WarehousePermission(user5, warehouse1, WarehousePermissionType.GUEST));

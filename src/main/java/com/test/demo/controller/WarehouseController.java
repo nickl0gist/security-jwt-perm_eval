@@ -28,30 +28,30 @@ public class WarehouseController {
         this.warehouseService = warehouseService;
     }
 
-    @GetMapping //+ CCC +GUEST +ADMIN
+    @GetMapping
     @PostFilter("hasPermission(filterObject, {'CCC', 'XDC', 'TXDC', 'TS', 'TC', 'GUEST', 'ADMIN'})")
     public List<Warehouse> getAllWh(){
         return warehouseService.findAllWarehouses();
     }
 
-    @GetMapping("/{id}") //+ CCC +GUEST +ADMIN
+    @GetMapping("/{id}")
     public Warehouse getOne(@PathVariable Long id){
         return warehouseService.findWarehouseById(id);
     }
 
-    @PutMapping //-CCC -Guest +ADMIN
+    @PutMapping
     public RedirectView updateById(@RequestBody Warehouse warehouse){
         warehouseService.update(warehouse);
         return new RedirectView("warehouse/" + warehouse.getWarehouseId());
     }
 
-    @PutMapping("/{id}")  //-CCC -GUEST +ADMIN
+    @PutMapping("/{id}")
     public RedirectView updateNameById(@PathVariable Long id, @RequestParam(defaultValue = "SOME_NAME") String name){
         warehouseService.updateNameById(id, name);
         return new RedirectView( id.toString());
     }
 
-    @PostMapping //-CCC -GUEST +ADMIN
+    @PostMapping
     public RedirectView createNew(@RequestBody Warehouse warehouse){
         warehouseService.persist(warehouse);
         return new RedirectView("warehouse/" + warehouse.getWarehouseId());

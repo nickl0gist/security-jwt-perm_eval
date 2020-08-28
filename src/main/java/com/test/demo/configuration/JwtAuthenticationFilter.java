@@ -24,7 +24,6 @@ import java.util.stream.Collectors;
 
 /**
  * Created on 31.07.2020
- *
  * @author Mykola Horkov
  * mykola.horkov@gmail.com
  */

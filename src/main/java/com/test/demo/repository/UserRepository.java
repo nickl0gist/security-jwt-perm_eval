@@ -10,7 +10,6 @@ import java.util.Optional;
 
 /**
  * Created on 26.07.2020
- *
  * @author Mykola Horkov
  * mykola.horkov@gmail.com
  */

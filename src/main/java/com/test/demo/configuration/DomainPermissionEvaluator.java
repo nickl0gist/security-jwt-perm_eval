@@ -36,7 +36,6 @@ public class DomainPermissionEvaluator implements PermissionEvaluator {
 
     @Override
     public boolean hasPermission(Authentication authentication, Object domainObject, Object permission) {
-        //Invoked listAll and updateById
         UserPrincipal principal = new UserPrincipal(userService.findByEmail(authentication.getName()));
 
         if (domainObject instanceof Warehouse) {
@@ -54,7 +53,6 @@ public class DomainPermissionEvaluator implements PermissionEvaluator {
                     (Long) domainObjectId,
                     (List<WarehousePermissionType>)permission);
         }
-
         return false;
     }
 
@@ -66,7 +64,5 @@ public class DomainPermissionEvaluator implements PermissionEvaluator {
                 .filter(warehousePermission -> warehousePermission.getUser().getEmail().equals(email))
                 .anyMatch(warehousePermission -> permissionList.contains(warehousePermission.getWarehousePermissionType().toString()));
     }
-
-
 }
 

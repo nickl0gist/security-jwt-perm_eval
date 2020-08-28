@@ -28,13 +28,6 @@ public class Warehouse {
     @OneToMany(mappedBy = "warehouse")
     private List<TPA> tpaList;
 
-/*    public Warehouse(long id, String name, String code, WarehouseType warehouseType) {
-        this.warehouseId = id;
-        this.name = name;
-        this.code = code;
-        this.warehouseType = warehouseType;
-    }*/
-
     public Warehouse(long id, String name, String code, WarehouseType warehouseType, List<TTT> tttList, List<TPA> tpaList) {
         this.warehouseId = id;
         this.name = name;

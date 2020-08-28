@@ -45,7 +45,7 @@ public class ManifestController {
     }
 
     @PreAuthorize("hasPermission(#warehouseId, 'com.test.demo.model.Warehouse', {'CCC', 'XDC', 'TXDC', 'TS', 'TC', 'ADMIN', 'GUEST'})")
-    @GetMapping(headers = "truck=tpa")//+CCC +ADMIN +GUEST
+    @GetMapping(headers = "truck=tpa")
     public List<Manifest> getManifestsFromTpa(@PathVariable("warehouseId") long warehouseId,
                                               @PathVariable("tpaId") long tpaId) {
         List<TPA> tpaList = warehouseService.findWarehouseById(warehouseId).getTpaList();
@@ -57,7 +57,7 @@ public class ManifestController {
     }
 
     @PreAuthorize("hasPermission(#warehouseId, 'com.test.demo.model.Warehouse', {'CCC', 'XDC', 'TXDC', 'TS', 'TC', 'ADMIN', 'GUEST'})")
-    @GetMapping(headers = "truck=ttt")//+CCC +ADMIN +GUEST
+    @GetMapping(headers = "truck=ttt")
     public List<Manifest> getManifestsFromTtt(@PathVariable("warehouseId") long warehouseId,
                                               @PathVariable("tttId") long tttId) {
         List<TTT> tttList = warehouseService.findWarehouseById(warehouseId).getTttList();
@@ -68,7 +68,7 @@ public class ManifestController {
         return ttt.getManifestList();
     }
 
-    @GetMapping(value = "/{idM}", headers = "truck=ttt")//+CCC +ADMIN +GUEST
+    @GetMapping(value = "/{idM}", headers = "truck=ttt")
     @PreAuthorize("hasPermission(#warehouseId, 'com.test.demo.model.Warehouse', {'CCC', 'XDC', 'TXDC', 'TS', 'TC', 'ADMIN', 'GUEST'})")
     public Manifest getManifestFromTTT(@PathVariable long idM,  @PathVariable("tttId") long tttId, @PathVariable("warehouseId") long warehouseId) {
         List<TTT> tttList = warehouseService.findWarehouseById(warehouseId).getTttList();
@@ -80,7 +80,7 @@ public class ManifestController {
         return manifest;
     }
 
-    @GetMapping(value = "/{idM}", headers = "truck=tpa")//+CCC +ADMIN +GUEST
+    @GetMapping(value = "/{idM}", headers = "truck=tpa")
     @PreAuthorize("hasPermission(#warehouseId, 'com.test.demo.model.Warehouse', {'CCC', 'XDC', 'TXDC', 'TS', 'TC', 'ADMIN', 'GUEST'})")
     public Manifest getManifestFromTPA(@PathVariable long idM,  @PathVariable("tpaId") long tpaId, @PathVariable("warehouseId") long warehouseId) {
         List<TPA> tpaList = warehouseService.findWarehouseById(warehouseId).getTpaList();
@@ -93,7 +93,7 @@ public class ManifestController {
     }
 
     @PreAuthorize("hasPermission(#warehouseId, 'com.test.demo.model.Warehouse', {'CCC', 'XDC', 'TXDC', 'TS', 'TC', 'ADMIN'})")
-    @PostMapping(headers = "truck=tpa")//+CCC
+    @PostMapping(headers = "truck=tpa")
     public RedirectView addNewManifestToTpa(@PathVariable("tpaId") long tpaId, @PathVariable("warehouseId") long warehouseId,
                                             @RequestBody Manifest manifest, HttpServletRequest request) {
         List<TPA> tpaList = warehouseService.findWarehouseById(warehouseId).getTpaList();
@@ -106,7 +106,7 @@ public class ManifestController {
     }
 
     @PreAuthorize("hasPermission(#warehouseId, 'com.test.demo.model.Warehouse', {'CCC', 'XDC', 'TXDC', 'TS', 'TC', 'ADMIN'})")
-    @PostMapping(headers = "truck=ttt")//+CCC
+    @PostMapping(headers = "truck=ttt")
     public RedirectView addNewManifestToTTT(@PathVariable("tttId") long tttId, @PathVariable("warehouseId") long warehouseId,
                                             @RequestBody Manifest manifest, HttpServletRequest request) {
         List<TTT> tttList = warehouseService.findWarehouseById(warehouseId).getTttList();

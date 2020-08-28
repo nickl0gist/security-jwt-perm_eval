@@ -4,7 +4,6 @@ import lombok.Data;
 
 /**
  * Created on 31.07.2020
- *
  * @author Mykola Horkov
  * mykola.horkov@gmail.com
  */

@@ -40,7 +40,6 @@ class DemoApplicationTests {
 	@Autowired
 	private UserRepository userRepository;
 
-	@Order(1)
 	@Test
 	void test1_CccUserResponse() throws Exception{
 		String token = getToken("jan@example.com");
@@ -50,7 +49,6 @@ class DemoApplicationTests {
 				.andExpect(jsonPath("$", hasSize(1)));
 	}
 
-	@Order(2)
 	@Test
 	void test2_XdcUserResponse() throws Exception{
 		String token = getToken("stefan@example.com");
@@ -60,7 +58,6 @@ class DemoApplicationTests {
 				.andExpect(jsonPath("$", hasSize(1)));
 	}
 
-	@Order(3)
 	@Test
 	void test3_AdminUserResponse() throws Exception{
 		String token = getToken("katarzyna@example.com");
@@ -70,7 +67,6 @@ class DemoApplicationTests {
 				.andExpect(jsonPath("$", hasSize(4)));
 	}
 
-	@Order(4)
 	@Test
 	void test4_TcUserResponse() throws Exception{
 		String token = getToken("joanna@example.com");

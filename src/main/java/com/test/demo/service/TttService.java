@@ -29,11 +29,9 @@ public class TttService {
     @Autowired
     WarehousePermissionRepo warehousePermissionRepo;
 
-    //@Secured({"CCC", "ROLE_CCC", "ROLE_XDC", "ROLE_TXDC", "ROLE_TS", "ROLE_TC", "ROLE_GUEST", "ROLE_ADMIN"})
     public TTT findTttById(Long id) {
         return tttRepo.findById(id).orElse(null);
     }
-
 
     public void persist(TTT ttt) {
         tttRepo.save(ttt);

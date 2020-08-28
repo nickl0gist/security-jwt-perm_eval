@@ -31,12 +31,12 @@ public class TttController {
     @Autowired
     WarehouseService warehouseService;
 
-    @GetMapping //+CCC +GUEST +ADMIN
+    @GetMapping
     public List<TTT> getAllTtt(@PathVariable("warehouseId") long id) {
         return warehouseService.findWarehouseById(id).getTttList();
     }
 
-    @GetMapping("/{id}") //+CCC +GUEST +ADMIN
+    @GetMapping("/{id}")
     @PreAuthorize("hasPermission(#warehouseId, 'com.test.demo.model.Warehouse', {'CCC', 'XDC', 'TXDC', 'TS', 'TC', 'ADMIN', 'GUEST'})")
     public TTT getTtt(@PathVariable("warehouseId") long warehouseId, @PathVariable Long id) {
         TTT ttt = tttService.findTttById(id);
@@ -46,7 +46,7 @@ public class TttController {
         return ttt;
     }
 
-    @PostMapping //+CCC -GUEST +ADMIN
+    @PostMapping
     @PreAuthorize("hasPermission(#warehouseId, 'com.test.demo.model.Warehouse', {'CCC', 'XDC', 'TXDC', 'TS', 'TC', 'ADMIN'})")
     public RedirectView postNewTtt(@PathVariable("warehouseId") long warehouseId, @RequestBody TTT ttt) {
         tttService.persist(ttt);

@@ -40,32 +40,12 @@ public class Manifest {
         return manifestId;
     }
 
-    public void setManifestId(Long id) {
-        this.manifestId = id;
-    }
-
-    public String getCode() {
-        return code;
-    }
-
     public TPA getTpa() {
         return tpa;
     }
 
-    public void setCode(String code) {
-        this.code = code;
-    }
-
     public void setTpa(TPA tpa) {
         this.tpa = tpa;
-    }
-
-    public TTT getTtt() {
-        return ttt;
-    }
-
-    public void setTtt(TTT ttt) {
-        this.ttt = ttt;
     }
 
     @Override

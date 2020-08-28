@@ -29,12 +29,12 @@ public class TpaController {
     @Autowired
     WarehouseService warehouseService;
 
-    @GetMapping //+CCC +GUEST +ADMIN
+    @GetMapping
     public List<TPA> getAllTpa(@PathVariable("warehouseId") long id) {
         return warehouseService.findWarehouseById(id).getTpaList();
     }
 
-    @GetMapping("/{id}")//+CCC +GUEST +ADMIN
+    @GetMapping("/{id}")
     @PreAuthorize("hasPermission(#warehouseId, 'com.test.demo.model.Warehouse', {'CCC', 'XDC', 'TXDC', 'TS', 'TC', 'ADMIN', 'GUEST'})")
     public TPA getTpa(@PathVariable("warehouseId") long warehouseId, @PathVariable Long id) {
         TPA tpa = tpaService.findTpaById(id);
@@ -44,7 +44,7 @@ public class TpaController {
         return tpa;
     }
 
-    @PostMapping//+CCC -GUEST +ADMIN
+    @PostMapping
     @PreAuthorize("hasPermission(#warehouseId, 'com.test.demo.model.Warehouse', {'CCC', 'XDC', 'TXDC', 'ADMIN'})")
     public RedirectView postNewTpa(@PathVariable("warehouseId") long warehouseId, @RequestBody TPA tpa) {
         warehouseService.addTpaToWarehouse(warehouseId, tpa);
